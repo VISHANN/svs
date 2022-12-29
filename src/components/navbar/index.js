@@ -14,15 +14,18 @@ export default function Navbar() {
       </nav>
       <style jsx>{`
         nav {
-          font-size: 1.5rem;
-          padding-inline: 20%;
-
           display: flex;
           justify-content: space-between;
           align-items: center;
-
-
-          background: #1e3932;
+          position: fixed;
+          z-index: 10; /* To keep it on top of hero image */
+          
+          /* Positioned elements have their width calculated to fit content */
+          width: 100%; 
+          
+          font-size: 1.5rem;
+          padding-inline: 20%;
+          background: transparent;
         }
         @media screen and (max-width: 760px) {
 

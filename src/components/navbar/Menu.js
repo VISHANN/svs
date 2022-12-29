@@ -39,12 +39,8 @@ export default function Menu() {
           width: 100%;
           text-align: center;
           color: #fff;
-          border-bottom: 4px solid #1e3932;
         }
         
-        .nav-link:hover, .nav-link:focus {
-          border-color: white;
-        }
         @media screen and (max-width: 760px) {
 
           .nav-items {
@@ -62,10 +58,6 @@ export default function Menu() {
             right: 0;
 
             background: #1e3932;
-          }
-          
-          .nav-link {
-            border: none;
           }
         }
 

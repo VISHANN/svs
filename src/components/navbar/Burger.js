@@ -27,6 +27,8 @@ export default function Burger() {
           flex-direction: column;
           justify-content: space-around;
           align-items: center;
+
+          background: transparent;
         }
         div {
           /* Dimensions three bars */
@@ -34,7 +36,7 @@ export default function Burger() {
           height: 0.25rem;
 
           /* Color of bars */
-          background: black;
+          background: #fff;
           border-radius: 2rem;
 
           /* Common properties for toggle animation */

@@ -43,13 +43,13 @@ export default function Navbar() {
           justify-content: space-between;
           align-items: center;
 
-          position: relative;
 
           background: #1e3932;
         }
         
         .nav-brand {
           color: #fff;
+          font-weight: 800;
         }
         
         .nav-items {
@@ -61,6 +61,9 @@ export default function Navbar() {
         .nav-link {
           display: inline-block;
           padding: 1rem 1rem;
+
+          /* Center vertical nav links*/
+          width: 100%;
           text-align: center;
           color: #fff;
           border-bottom: 4px solid #1e3932;
@@ -70,8 +73,9 @@ export default function Navbar() {
           border-color: white;
         }
         @media screen and (max-width: 760px) {
+          /* Styles for Mobile view */
           nav {
-            padding-inline: 1rem;
+            padding: 0.7rem 1rem;
           }
           .nav-items {
             transform: translateX(-100%);
@@ -87,10 +91,10 @@ export default function Navbar() {
             left: 0;
             right: 0;
 
-            background: black;
+            background: #1e3932;
           }
-          .nav-item .nav-link{
-            color: white;
+          .nav-link {
+            border: none;
           }
         }
 

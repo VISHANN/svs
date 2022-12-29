@@ -7,7 +7,16 @@ export default function Hero() {
           alt="girls in classroom" />
       </div>
       <div className="hero-text">
-
+        <div className="row">
+          <div className="column">
+            <h2 className="hero-title">
+              About Us
+            </h2>
+            <p className="hero-subtitle">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ad modi natus quae qui eum at ipsam. Facere atque at voluptates quam, harum veritatis, optio, quae commodi unde explicabo maxime.
+            </p>
+          </div>
+        </div>
       </div>
       <style jsx>{`
         .hero {
@@ -36,6 +45,25 @@ export default function Hero() {
         .hero-text {
           width: 100%;
           height: 100%;
+
+          color: #fff;
+          background: rgba(0, 0, 0, 0.2)
+        }
+        .row {
+          position: relative; 
+          top: 50%;
+          transform: translateY(-50%);
+
+          width: 100%;
+          max-width: 75rem;
+
+          /* Horizontal Center */
+          margin-inline: auto;
+        }
+
+        .column {
+          width: 55%;
+          margin-left: auto;
         }
       `} </style>
     </div>

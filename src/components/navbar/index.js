@@ -4,7 +4,7 @@ export default function Navbar() {
   return(
     <>
       <nav>
-        <div className="brand-banner">
+        <div className="nav-brand">
           SVS
         </div>
         
@@ -34,7 +34,9 @@ export default function Navbar() {
           margin: 0;
           padding: 0;
         }
+        
         nav {
+          font-size: 1.5rem;
           padding-inline: 20%;
 
           display: flex;
@@ -42,12 +44,30 @@ export default function Navbar() {
           align-items: center;
 
           position: relative;
-        }
 
+          background: #1e3932;
+        }
+        
+        .nav-brand {
+          color: #fff;
+        }
+        
         .nav-items {
           display: flex;
           justify-content: space-around;
           list-style: none;
+        }
+        
+        .nav-link {
+          display: inline-block;
+          padding: 1rem 1rem;
+          text-align: center;
+          color: #fff;
+          border-bottom: 4px solid #1e3932;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+          border-color: white;
         }
         @media screen and (max-width: 760px) {
           nav {
@@ -72,15 +92,6 @@ export default function Navbar() {
           .nav-item .nav-link{
             color: white;
           }
-        }
-
-        .nav-link {
-          padding: 1rem;
-        }
-        
-        .nav-item {
-          text-align: center;
-          border: 1px solid red;
         }
 
         .open {

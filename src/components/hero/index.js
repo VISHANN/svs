@@ -3,18 +3,21 @@ export default function Hero() {
     <div className="hero">
       <div className="hero-img">
         <img 
-          src="https://images.unsplash.com/photo-1573894999291-f440466112cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
+          src="https://www.harker.org/uploaded/themes/corporate-2015/img/Screen_Shot_2022-09-02_at_3.00.29_PM.jpg" 
           alt="girls in classroom" />
       </div>
       <div className="hero-text">
         <div className="row">
           <div className="column">
-            <h2 className="hero-title">
+            <h1 className="hero-title">
               About Us
-            </h2>
+            </h1>
             <p className="hero-subtitle">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ad modi natus quae qui eum at ipsam. Facere atque at voluptates quam, harum veritatis, optio, quae commodi unde explicabo maxime.
+              The Harker School is one of the nation’s top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education.             
             </p>
+            <a href="#" className="btn btn-secondary">
+              Learn More
+            </a>
           </div>
         </div>
       </div>
@@ -22,7 +25,7 @@ export default function Hero() {
         .hero {
           position: relative;
           z-index: 0;
-          width: 100vw;
+          width: 100%;
           height: 100vh;
         }
         .hero-img {
@@ -35,8 +38,13 @@ export default function Hero() {
           height: 100%;
         }
         img {
+          display: block;
+          width: 100%;
+          height: 100%;
+
           position: absolute;
-          top: -20%;
+          top: 0;
+          left: 0;
 
           min-width: 100%;
           min-height: 100%; 
@@ -48,6 +56,19 @@ export default function Hero() {
 
           color: #fff;
           background: rgba(0, 0, 0, 0.2)
+        }
+
+        .hero-title {
+          text-transform: uppercase;
+          line-height: 1em;
+          font-weight: 700;
+
+          margin-bottom: 1.5rem;
+        }
+        .hero-subtitle {
+          font-size: 1.5rem;
+          line-height: 1.5em;
+          margin-bottom: 1.5em;
         }
         .row {
           position: relative; 
@@ -64,6 +85,19 @@ export default function Hero() {
         .column {
           width: 55%;
           margin-left: auto;
+        }
+
+        .btn {
+          display: inline-block;
+          font-size: 1.125rem;
+          font-weight: 400;
+          color: #333;
+
+          padding: 0.5rem 1rem 0.5635rem;
+          text-align: center;
+        }
+        .btn-secondary {
+          background: #fff;
         }
       `} </style>
     </div>

@@ -1,5 +1,6 @@
 import Hero from '../src/components/hero'
 import Navbar from '../src/components/navbar'
+import PrimaryNav from '../src/components/navbar/PrimaryNav'
 
 export default function Home() {
   
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <PrimaryNav />
       <div className="element">
         <div className="row">
           <h1 className="title">
@@ -26,6 +28,7 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <div className="delete"></div>
       <style jsx>{`
         .element {
           position: relative;
@@ -70,6 +73,10 @@ export default function Home() {
         .intro {
           font-size: 1.75rem;
           font-weight: 200;
+        }
+        .delete {
+          width: 100%;
+          height: 100vh;
         }
       `}</style>
     </>

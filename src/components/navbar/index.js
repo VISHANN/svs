@@ -17,7 +17,7 @@ export default function Navbar() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          position: fixed;
+          position: absolute;
           z-index: 10; /* To keep it on top of hero image */
           
           /* Positioned elements have their width calculated to fit content */

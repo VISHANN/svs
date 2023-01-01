@@ -73,6 +73,7 @@ export default function Hero() {
             font-size: 1.5rem;
             line-height: 1.5em;
             margin-bottom: 1.5em;
+            display: block;
           }
         }
         .row {

@@ -13,7 +13,7 @@ export default function Hero() {
               About Us
             </h1>
             <p className="hero-subtitle">
-              The Harker School is one of the nation’s top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education.             
+              The Vivekanand School is one of the nations top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education.             
             </p>
             <a href="#" className="btn btn-secondary">
               Learn More
@@ -66,9 +66,14 @@ export default function Hero() {
           margin-bottom: 1.5rem;
         }
         .hero-subtitle {
-          font-size: 1.5rem;
-          line-height: 1.5em;
-          margin-bottom: 1.5em;
+          display: none;
+        }
+        @media all and (min-width: 760px) {
+          .hero-subtitle {
+            font-size: 1.5rem;
+            line-height: 1.5em;
+            margin-bottom: 1.5em;
+          }
         }
         .row {
           position: relative; 

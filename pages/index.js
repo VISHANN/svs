@@ -40,7 +40,7 @@ export default function Home() {
           max-width: 75rem;
 
           margin-inline: auto;
-          padding-block: 3rem;
+          padding: 3rem 1rem;
         }
         h1 {
           margin-bottom: 1.5rem;

@@ -28,7 +28,11 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="delete"></div>
+      <div className="element ">
+        <div className="row">
+
+        </div>
+      </div>
       <style jsx>{`
         .element {
           position: relative;
@@ -49,34 +53,10 @@ export default function Home() {
           font-weight: 700;
           font-size: 3rem;
         }
-
-        .btn {
-          display: inline-block;
-          font-size: 1.125rem;
-          color: #333;
-
-          padding: 0.5rem 1rem 0.5635rem;
-          text-align: center;
-        }
-        .btn-outline {
-          background: transparent;
-          font-weight: 200;
-
-          border: 1px solid #333;
-        }
-        p {
-          margin-bottom: 0.75rem;
-        }
-        .margin-top {
-          .margin-top: 1.5rem ;
-        }
+        
         .intro {
           font-size: 1.75rem;
           font-weight: 200;
-        }
-        .delete {
-          width: 100%;
-          height: 100vh;
         }
       `}</style>
     </>

@@ -12,3 +12,29 @@ body {
     font-size: 1.2rem;
   }
 }
+
+/* UTILITY CLASSES */
+
+.btn {
+  display: inline-block;
+  font-size: 1.125rem;
+  color: #333;
+
+  padding: 0.5rem 1rem 0.5635rem;
+  text-align: center;
+}
+
+.btn-outline {
+  background: transparent;
+  font-weight: 200;
+
+  border: 1px solid #333;
+}
+
+.margin-top {
+  margin-top: 1.5rem ;
+}
+
+p {
+  margin-bottom: 0.75rem;
+}

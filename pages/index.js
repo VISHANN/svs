@@ -10,30 +10,32 @@ export default function Home() {
       <Hero />
       <PrimaryNav />
       <div className="element">
-        <div className="container">
-          <h1 className="title">
-            About Us
-          </h1>
-          <div className="intro">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.
-              <br />
-              <br />
+        <div className="container row">
+          <div className="col-12">
+            <h1 className="title">
+              About Us
+            </h1>
+            <div className="intro">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.
+                <br />
+                <br />
+              </p>
+            </div>
+            <p className="margin-top">
+              <a className='btn btn-outline' href="#">
+                Contact Us
+              </a>
             </p>
           </div>
-          <p className="margin-top">
-            <a className='btn btn-outline' href="#">
-              Contact Us
-            </a>
-          </p>
         </div>
       </div>
       <div className="element bg-secondary text-white">
-        <div className="container col-two">
-          <div className="col-lg-4 px-2">
+        <div className="container row">
+          <div className="col-12 col-lg-4 pr-2">
             <img src="https://www.harker.org/uploaded/themes/corporate-2015/img/2019-05_US_Gradution_MK_0172.jpg" alt="" />
           </div>
-          <div className="col-lg-8 px-3">
+          <div className="col-12 col-lg-8 pl-4">
             <h2 className="">
               The Vivekanand School: A World-Class Education for Tomorrow’s Leaders
             </h2>
@@ -72,26 +74,12 @@ export default function Home() {
           font-size: 1rem;
         }
 
-        @media screen and (min-width: 760px) {
-          .col-lg-4 {
-            flex: 4;
-          }
-          .col-lg-8 {
-            flex: 8;
-          }
-          .col-two {
-            flex-direction: row !important;
-          }
+        
+        .pr-2 {
+          padding-right: 1rem;
         }
-        .col-two {
-          flex-direction: column;
-          display: flex;
-        }
-        .px-2 {
-          padding-inline: 1rem;
-        }
-        .px-3 {
-          padding-inline: 3rem 1rem;
+        .pl-4 {
+          padding-left: 2rem ;
         }
         
         h1 {

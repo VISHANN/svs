@@ -38,3 +38,32 @@ body {
 p {
   margin-bottom: 0.75rem;
 }
+
+/* Flexbox */
+
+.row {
+  display: flex;
+
+  /* enables elements to stack in two lines*/
+  flex-wrap: wrap;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+}
+
+@media (min-width: 760px) {
+  .col-lg-4 {
+    flex: 0 0 33.333333%;
+    
+    /* flex-basis only effects flex-basis */
+    max-width: 33.333333%;
+  }
+  .col-lg-8 {
+    flex: 0 0 66.666667%;
+    
+    /* flex-basis only effects flex-basis */
+    max-width: 66.666667%;
+  }
+  
+}

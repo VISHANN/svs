@@ -4,6 +4,13 @@ body {
   font-family: 'Barlow', sans-serif;
 }
 
+:root {
+  --light: #f4f5ef;
+  --dk-green: #044836;
+  --lt-green: #63a70a;
+  --charcoal: #555;
+}
+
 @media screen and (max-width: 760px) {
   h1, h2 {
     font-size: 2.25rem;

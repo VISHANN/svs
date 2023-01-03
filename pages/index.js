@@ -55,10 +55,10 @@ export default function Home() {
       <style jsx>{`
         .element {
           position: relative;
-          background: #f4f5ef;
+          background: var(--light);
         }
         .bg-secondary {
-          background: #63a70a;
+          background: var(--lt-green);
         }
         .text-white {
           color: white;
@@ -84,7 +84,7 @@ export default function Home() {
         
         h1 {
           margin-bottom: 1.5rem;
-          color: #555;
+          color: var(--charcoal);
           text-transform: uppercase;
           font-size: 3rem;
           font-weight: 700;

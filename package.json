@@ -13,5 +13,17 @@
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
-  }
+  },
+  "description": "Swami Vivekanand School website",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VISHANN/svs.git"
+  },
+  "author": "Ujjwal Goswami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VISHANN/svs/issues"
+  },
+  "homepage": "https://github.com/VISHANN/svs#readme"
 }

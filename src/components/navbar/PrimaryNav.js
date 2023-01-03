@@ -1,5 +1,3 @@
-import Burger from "./Burger";
-
 export default function PrimaryNav() {
   // First file to use camelcase for class naming
   return (
@@ -39,7 +37,7 @@ export default function PrimaryNav() {
           z-index: 10;
           
           color: #fff;
-          background: #044836;
+          background: var(--dk-green);
         }
         .primary-nav {
           display: flex;

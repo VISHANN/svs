@@ -1,8 +1,33 @@
+import { useEffect } from "react"
+
 export default function Hero() {
+  function imgOnLoad (e) {
+    let img = document.querySelector('.hero-img img');
+    let f = img.naturalWidth / img.naturalHeight ;
+    let b = window.innerWidth,
+      c = window.innerHeight,
+      h = "", 
+      i = "", 
+      j = "", 
+      k = "";
+    
+    b / c < f 
+      ? ((h = c * f), (k = -(h - b) / 2))
+      : ((i = b / f), (j = -(i - c) / 2))
+    console.log(h, k, i, j);
+    img.style.cssText += `width: ${h}px; left: ${k}px; height: ${i}px; top: ${j}px`;
+  }
+
+  useEffect(() => {
+    let img = document.querySelector('.hero-img img');
+    if(img && img.complete) {
+      imgOnLoad();
+    }
+  })
   return(
     <div className="hero">
       <div className="hero-img">
-        <img 
+        <img onLoad={imgOnLoad}
           src="https://www.harker.org/uploaded/themes/corporate-2015/img/Screen_Shot_2022-09-02_at_3.00.29_PM.jpg" 
           alt="girls in classroom" />
       </div>
@@ -37,10 +62,8 @@ export default function Hero() {
           width: 100%;
           height: 100%;
         }
-        img {
+        .hero-img > img {
           display: block;
-          width: 100%;
-          height: 100%;
 
           position: absolute;
           top: 0;
@@ -48,6 +71,9 @@ export default function Hero() {
 
           min-width: 100%;
           min-height: 100%; 
+
+          /* To override reset.css max-width set to 100% */
+          max-width: none;
         }
 
         .hero-text {

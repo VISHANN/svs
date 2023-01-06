@@ -1,8 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 export default function Hero() {
-  function imgOnLoad (e) {
-    let img = document.querySelector('.hero-img img');
+  // imgRef.current will get the initial value null
+  const imgRef = useRef(null);
+
+  function resizeImg (img) {
     let f = img.naturalWidth / img.naturalHeight ;
     let b = window.innerWidth,
       c = window.innerHeight,
@@ -14,20 +16,19 @@ export default function Hero() {
     b / c < f 
       ? ((h = c * f), (k = -(h - b) / 2))
       : ((i = b / f), (j = -(i - c) / 2))
-    console.log(h, k, i, j);
     img.style.cssText += `width: ${h}px; left: ${k}px; height: ${i}px; top: ${j}px`;
   }
 
   useEffect(() => {
-    let img = document.querySelector('.hero-img img');
+    let img = imgRef.current;
     if(img && img.complete) {
-      imgOnLoad();
+      resizeImg(img);
     }
   })
   return(
     <div className="hero">
       <div className="hero-img">
-        <img onLoad={imgOnLoad}
+        <img ref={imgRef}
           src="https://www.harker.org/uploaded/themes/corporate-2015/img/Screen_Shot_2022-09-02_at_3.00.29_PM.jpg" 
           alt="girls in classroom" />
       </div>

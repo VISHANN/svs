@@ -33,10 +33,10 @@ export default function Home() {
       <div className="slice">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-lg-4 pr-2">
+            <div className="col-12 col-lg-4">
               <img src="https://www.harker.org/uploaded/themes/corporate-2015/img/2019-05_US_Gradution_MK_0172.jpg" alt="" />
             </div>
-            <div className="col-12 col-lg-8 pl-4">
+            <div className="col-12 col-lg-8">
               <h2 className='h2'>
                 The Vivekanand School: A World-Class Education for Tomorrow’s Leaders
               </h2>
@@ -73,15 +73,48 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
+      <div className="slice">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-lg-4">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Swami_Vivekananda-1893-09-signed.jpg" 
+                alt="Swami Vivekananda" />
+            </div>
+            <div className="col-12 col-lg-8">
+              <h2 className="h2">
+                Our Patron
+              </h2>
+              <p className="lead">
+                Our patron, Narendra Nath Dutta (1863-1902), popularly known as Swami Vivekananda, was an Indian Hindu monk, philosopher, author, religious teacher. 
+                <br></br>
+                Swami Vivekananda was a Hindu monk and one of the most celebrated spiritual leaders of India. He was more than just a spiritual mind; he was a prolific thinker, great orator and passionate patriot. He carried on the free-thinking philosophy of his guru, Ramakrishna Paramhansa forward into a new paradigm. He worked tirelessly towards betterment of the society, in servitude of the poor and needy, dedicating his all for his country. He was responsible for the revival of Hindu spiritualism and established Hinduism as a revered religion on world stage. His message of universal brotherhood and self-awakening remains relevant especially in the current backdrop of widespread political turmoil around the world. The young monk and his teachings have been an inspiration to many, and his words have become goals of self-improvement especially for the youth of the country. For this very reason, his birthday, January 12, is celebrated as the National Youth Day in India.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="slice">
+        <div className="container">
+          <blockquote>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?
+            </p>
+            <cite>Swami Vivekananda</cite>
+          </blockquote>
+        </div>
+      </div>
       <style jsx>{`
-        p {
+        .lead {
+          font-size: 1rem;
           margin-bottom: 0.75rem;
-          font-size: 1.2rem;
         }
-
         .intro {
           font-size: 1.2rem;
           font-weight: 200;
+          margin-bottom: 0.75rem;
         }
         @media screen and (min-width: 760px) {
           .intro {

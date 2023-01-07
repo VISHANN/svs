@@ -43,7 +43,7 @@ a:not([class]) {
 /* Remove all default styles of A elements */
 a {
   text-decoration: none;
-  }
+}
 
 /* Make images easier to work with */
 img,

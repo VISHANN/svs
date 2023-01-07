@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Barlow', sans-serif;
+  line-height: 1.5;
 }
 
 :root {
@@ -11,34 +12,24 @@ body {
   --charcoal: #555;
 }
 
-@media screen and (max-width: 760px) {
-  h1, h2 {
-    font-size: 2.25rem;
-  }
-  p {
-    font-size: 1.2rem;
-  }
-}
-
 /* UTILITY CLASSES */
 
 .slice {
   position: relative;
-  
+  padding-inline: .5rem;
   background: var(--light);
   color: var(--charcoal);
 }
-
 .slice:nth-of-type(even) {
   background: var(--lt-green);
   color: #fff;
 }
-
 @media screen and (min-width: 760px) {
   .slice:nth-of-type(odd) .row {
     flex-direction: row-reverse;
   }
 }
+
 .container {
   width: 100%;
   max-width: 75rem;
@@ -46,7 +37,6 @@ body {
   margin-inline: auto;
   padding: 3rem 1rem;
 
-  line-height: 1.5;
   font-size: 1rem;
 }
 
@@ -71,26 +61,28 @@ body {
 .mt-3 {
   margin-top: 1.5rem ;
 }
-.pr-2 {
-  padding-right: 1rem;
-}
-.pl-4 {
-  padding-left: 2rem ;
-}
 
 /* Text */
 
 .h1 {
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 700;
+  line-height: 1;
 }
 .h2 {
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  line-height: 1;
+}
+
+@media screen and (min-width: 760px) {
+  .h1, .h2 {
+    font-size: 3rem;
+  }
 }
 
 /* Flexbox */
@@ -102,9 +94,12 @@ body {
   flex-wrap: wrap;
 }
 
-.row > *{
-  padding-inline: 1rem;
+@media screen and (min-width: 760px) {
+  .row > * {
+    padding-inline: 1rem;
+  }  
 }
+
 .col-12 {
   flex: 0 0 100%;
 }
@@ -124,3 +119,49 @@ body {
   }
   
 }
+
+/* STYLES */
+
+  .row img {
+    padding-bottom: 1.75rem;
+  }
+
+  blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    
+    margin: 0 0 .75rem;
+    padding: .75rem 1.25rem .75rem 1.1875rem;
+    border-left: 4px solid #ccc;
+    
+    quotes: "“" "”" "‘" "’";
+  }
+
+  blockquote > p::after, 
+  blockquote > p::before {
+    font-family: Georgia, serif;
+    font-size: 4em;    
+    color: #ccc;
+    line-height: 0.1em;
+  }
+  
+  blockquote > p::before {
+    content: open-quote;
+    margin-right: 0.2em;
+    margin-left: -0.1em;
+    vertical-align: -0.4em;
+  }
+
+  blockquote > p::after {
+    content: close-quote;
+    margin-left: .25em;
+    vertical-align: -.6em;  
+  }
+
+  blockquote > cite::before {
+    content: "\2014 \0020";
+  }
+  blockquote > cite {
+    font-size: 1.25rem;
+    color: #a0a0a0;    
+  }

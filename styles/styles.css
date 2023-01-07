@@ -34,6 +34,11 @@ body {
   color: #fff;
 }
 
+@media screen and (min-width: 760px) {
+  .slice:nth-of-type(odd) .row {
+    flex-direction: row-reverse;
+  }
+}
 .container {
   width: 100%;
   max-width: 75rem;

@@ -80,8 +80,13 @@ export default function Home() {
         }
 
         .intro {
-          font-size: 1.75rem;
+          font-size: 1.2rem;
           font-weight: 200;
+        }
+        @media screen and (min-width: 760px) {
+          .intro {
+            font-size: 1.75rem;
+          }
         }
       `}</style>
     </>

@@ -28,7 +28,7 @@ export default function Hero() {
   return(
     <div className="hero">
       <div className="hero-img">
-        <img ref={imgRef}
+        <img ref={imgRef} onLoad={() => resizeImg(imgRef.current)}
           src="https://www.harker.org/uploaded/themes/corporate-2015/img/Screen_Shot_2022-09-02_at_3.00.29_PM.jpg" 
           alt="girls in classroom" />
       </div>

@@ -50,7 +50,7 @@ body {
 .btn {
   display: inline-block;
   font-size: 1.125rem;
-  color: #333;
+  color: var(--charcoal);
 
   padding: 0.5rem 1rem 0.5635rem;
   text-align: center;
@@ -60,7 +60,7 @@ body {
   background: transparent;
   font-weight: 200;
 
-  border: 1px solid #555;
+  border: 1px solid var(--charcoal);
 }
 
 .mt-3 {
@@ -97,6 +97,9 @@ body {
   flex-wrap: wrap;
 }
 
+.row > *{
+  padding-inline: 1rem;
+}
 .col-12 {
   flex: 0 0 100%;
 }

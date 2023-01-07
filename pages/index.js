@@ -54,6 +54,25 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="slice">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-lg-4">
+              <img 
+                src="https://www.harker.org/uploaded/themes/corporate-2015/img/2015-09_LS_Full_Dress_MK_0078.jpg" 
+                alt="school kid" />
+            </div>
+            <div className="col-12 col-lg-8 pl-4">
+              <h2 className="h2">
+                Our Philosophy and Mission
+              </h2>
+              <p className="lead">
+                Our Patron Swami Vivekananda envisioned knowledge as path to  a peaceful, prosperous future and we at the Vivekananda School are committed to realizing it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <style jsx>{`
         p {
           margin-bottom: 0.75rem;

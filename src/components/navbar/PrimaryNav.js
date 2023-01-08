@@ -1,14 +1,20 @@
+import { useState } from 'react'
 export default function PrimaryNav(props) {
   // First file to use camelcase for class naming
+  const [isOpen, setIsOpen]= useState(false);
   const isHeader = (props.type == "header") ? true : false;
+
+  function toggleMenu() {
+    return isOpen ? setIsOpen(false) : setIsOpen(true);
+  }
   return (
     <div className="brand-bar">
-      <nav className="primary-nav">
+      <nav className="nav">
         <ul>
-          <li><a href="#">Home</a> </li>
+          <li><a href="#"> Home </a></li>
         </ul>
 
-        <ul className="primary-nav-sections">
+        <ul className="nav-sections">
           <li>
             <a href="#"> Admission </a>
           </li>
@@ -25,7 +31,7 @@ export default function PrimaryNav(props) {
             <a href="#"> Contact </a>
           </li>
         </ul>
-        <div className="burger">
+        <div className="burger" onClick={toggleMenu}>
           <div></div>
           <div></div>
           <div></div>
@@ -41,7 +47,7 @@ export default function PrimaryNav(props) {
           background: ${isHeader ? "transparent" : "var(--primary)"};
           width: 100%;
         }
-        .primary-nav {
+        .nav {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -57,7 +63,7 @@ export default function PrimaryNav(props) {
           margin: 0;
           padding: 0;
         }
-        .primary-nav a {
+        .nav a {
           padding: .875rem .5rem .625rem;
           /* line-height creating the unwanted whitespace */
           line-height: 1;
@@ -67,13 +73,21 @@ export default function PrimaryNav(props) {
           color: white;
           font-weight: 600;
         }
-        .primary-nav-sections {
-          display: none;
-          margin-left: auto;
+        .nav-sections {
+          display: ${isOpen ? "flex" : "none"};
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 90%;
+          height: 100vh;
+          flex-direction: column;
+
+          background: var(--primary);
         }
         @media all and (min-width: 760px) {
-          .primary-nav-sections {
+          .nav-sections {
             display: flex;
+            margin-left: auto;
           }
         }
 
@@ -83,6 +97,9 @@ export default function PrimaryNav(props) {
           flex-direction: column;
           justify-content: space-around;
           align-items: center;
+
+          position: relative;
+          cursor: pointer;
         }
         .burger > div {
           width: 14px;

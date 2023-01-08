@@ -6,10 +6,10 @@ body {
 }
 
 :root {
+  --primary: #044836;
+  --secondary: #63a70a;
   --light: #f4f5ef;
-  --dk-green: #044836;
-  --lt-green: #63a70a;
-  --charcoal: #555;
+  --dark: #555;
 }
 
 /* UTILITY CLASSES */
@@ -18,10 +18,10 @@ body {
   position: relative;
   padding-inline: .5rem;
   background: var(--light);
-  color: var(--charcoal);
+  color: var(--dark);
 }
 .slice:nth-of-type(even) {
-  background: var(--lt-green);
+  background: var(--secondary);
   color: #fff;
 }
 @media screen and (min-width: 760px) {
@@ -45,17 +45,13 @@ body {
 .btn {
   display: inline-block;
   font-size: 1.125rem;
-  color: var(--charcoal);
-
   padding: 0.5rem 1rem 0.5635rem;
-  text-align: center;
 }
 
-.btn-outline {
+.btn-outline-white {
   background: transparent;
-  font-weight: 200;
-
-  border: 1px solid var(--charcoal);
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .mt-3 {

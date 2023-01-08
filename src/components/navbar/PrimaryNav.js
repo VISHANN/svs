@@ -38,7 +38,7 @@ export default function PrimaryNav(props) {
           z-index: 10;
           
           color: #fff;
-          background: ${isHeader ? "transparent" : "var(--dk-green)"};
+          background: ${isHeader ? "transparent" : "var(--primary)"};
           width: 100%;
         }
         .primary-nav {

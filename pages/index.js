@@ -22,7 +22,7 @@ export default function Home() {
                 <br />
               </p>
               <p className="mt-3">
-                <a className='btn btn-outline' href="#">
+                <a className='btn btn-outline-white' href="#">
                   Contact Us
                 </a>
               </p>

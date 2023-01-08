@@ -41,7 +41,7 @@ export default function Hero() {
             <p className="hero-subtitle">
               The Vivekanand School is one of the nations top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education.             
             </p>
-            <a href="#" className="btn btn-secondary">
+            <a href="#" className="btn btn-white">
               Learn More
             </a>
           </div>
@@ -124,12 +124,12 @@ export default function Hero() {
           display: inline-block;
           font-size: 1.125rem;
           font-weight: 400;
-          color: #333;
+          color: var(--dark);
 
           padding: 0.5rem 1rem 0.5635rem;
           text-align: center;
         }
-        .btn-secondary {
+        .btn-white {
           background: #fff;
         }
       `} </style>

@@ -74,19 +74,32 @@ export default function PrimaryNav(props) {
           font-weight: 600;
         }
         .nav-sections {
-          display: ${isOpen ? "flex" : "none"};
+          display: flex;
+          flex-direction: column;
+
           position: fixed;
           top: 0;
           left: 0;
           width: 90%;
           height: 100vh;
-          flex-direction: column;
 
           background: var(--primary);
+
+          transform: translateX(${isOpen ? "0" : "-100%"});
+          transition: transform 0.3s linear;
         }
         @media all and (min-width: 760px) {
           .nav-sections {
             display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            position: static;
+            width: fit-content;
+            height: 100%;
+            
+            background: inherit;
+            transform: translateX(0);
             margin-left: auto;
           }
         }

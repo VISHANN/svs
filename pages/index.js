@@ -6,7 +6,7 @@ export default function Home() {
   
   return (
     <>
-      <Navbar />
+      <PrimaryNav type="header"/>
       <Hero />
       <PrimaryNav />
       <div className="slice">

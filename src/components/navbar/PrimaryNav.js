@@ -1,5 +1,6 @@
-export default function PrimaryNav() {
+export default function PrimaryNav(props) {
   // First file to use camelcase for class naming
+  const isHeader = (props.type == "header") ? true : false;
   return (
     <div className="brand-bar">
       <nav className="primary-nav">
@@ -32,12 +33,13 @@ export default function PrimaryNav() {
       </nav>
       <style jsx>{`
         .brand-bar {
-          position: sticky;
+          position: ${isHeader ? "absolute": "sticky"};
           top: 0;
           z-index: 10;
           
           color: #fff;
-          background: var(--dk-green);
+          background: ${isHeader ? "transparent" : "var(--dk-green)"};
+          width: 100%;
         }
         .primary-nav {
           display: flex;

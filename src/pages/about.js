@@ -7,7 +7,10 @@ export default function Home() {
   return (
     <>
       <PrimaryNav type="header"/>
-      <Hero />
+      <Hero 
+        title = "About Us"
+        subtitle = "The Vivekanand School is one of the nations top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education."/>
+      
       <PrimaryNav />
       <div className="slice">
         <div className="container">

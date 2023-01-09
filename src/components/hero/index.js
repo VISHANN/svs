@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 
-export default function Hero() {
+export default function Hero(props) {
   // imgRef.current will get the initial value null
   const imgRef = useRef(null);
 
@@ -36,10 +36,10 @@ export default function Hero() {
         <div className="row">
           <div className="column">
             <h1 className="hero-title">
-              About Us
+              {props.title}
             </h1>
             <p className="hero-subtitle">
-              The Vivekanand School is one of the nations top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education.             
+              {props.subtitle}             
             </p>
             <a href="#" className="btn btn-white">
               Learn More

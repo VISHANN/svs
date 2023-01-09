@@ -110,20 +110,7 @@ export default function Home() {
         </div>
       </div>
       <style jsx>{`
-        .lead {
-          font-size: 1rem;
-          margin-bottom: 0.75rem;
-        }
-        .intro {
-          font-size: 1.2rem;
-          font-weight: 200;
-          margin-bottom: 0.75rem;
-        }
-        @media screen and (min-width: 760px) {
-          .intro {
-            font-size: 1.75rem;
-          }
-        }
+        
       `}</style>
     </>
   )

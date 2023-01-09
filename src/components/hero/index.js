@@ -29,7 +29,7 @@ export default function Hero(props) {
     <div className="hero">
       <div className="hero-img">
         <img ref={imgRef} onLoad={() => resizeImg(imgRef.current)}
-          src="https://www.harker.org/uploaded/themes/corporate-2015/img/Screen_Shot_2022-09-02_at_3.00.29_PM.jpg" 
+          src="https://images.unsplash.com/photo-1573894999291-f440466112cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
           alt="girls in classroom" />
       </div>
       <div className="hero-text">

@@ -1,5 +1,5 @@
 import Hero from '../components/hero'
-import Navbar from '../components/navbar'
+import Footer from '../components/footer'
 import PrimaryNav from '../components/navbar/PrimaryNav'
 
 export default function Home() {
@@ -109,6 +109,7 @@ export default function Home() {
           </blockquote>
         </div>
       </div>
+      <Footer></Footer>
       <style jsx>{`
         
       `}</style>

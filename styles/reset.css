@@ -20,9 +20,11 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Set core root defaults */
@@ -43,6 +45,7 @@ a:not([class]) {
 /* Remove all default styles of A elements */
 a {
   text-decoration: none;
+  color: white;
 }
 
 /* Make images easier to work with */

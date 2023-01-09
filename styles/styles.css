@@ -136,7 +136,7 @@ body {
     
     margin: 0 0 .75rem;
     padding: .75rem 1.25rem .75rem 1.1875rem;
-    border-left: 4px solid var(--light);
+    border-left: 4px solid var(--dark);
     
     quotes: "“" "”" "‘" "’";
   }
@@ -145,7 +145,7 @@ body {
   blockquote > p::before {
     font-family: Georgia, serif;
     font-size: 4em;    
-    color: var(--light);
+    color: inherit;
     line-height: 0.1em;
   }
   
@@ -167,5 +167,5 @@ body {
   }
   blockquote > cite {
     font-size: 1.25rem;
-    color: var(--light);
+    color: inherit;
   }

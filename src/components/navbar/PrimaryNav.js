@@ -58,11 +58,6 @@ export default function PrimaryNav(props) {
           margin-inline: auto;
           padding-inline: 1rem;
         }
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
         .nav a {
           padding: .875rem .5rem .625rem;
           /* line-height creating the unwanted whitespace */

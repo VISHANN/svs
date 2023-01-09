@@ -16,13 +16,13 @@ export default function PrimaryNav(props) {
 
         <ul className="nav-sections">
           <li>
-            <a href="#"> Admission </a>
+            <a href="/about"> About </a>
+          </li>
+          <li>
+            <a href="/admission"> Admission </a>
           </li>
           <li>
             <a href="#"> Achievements </a>
-          </li>
-          <li>
-            <a href="#"> About Us </a>
           </li>
           <li>
             <a href="#"> Gallery </a>

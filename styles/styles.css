@@ -20,13 +20,27 @@ body {
   background: var(--light);
   color: var(--dark);
 }
-.slice:nth-of-type(even) {
+/* odd because it searches every element sibling of .slice and match those who are at odd position wrt list*/
+.slice:nth-of-type(odd) {
   background: var(--secondary);
   color: #fff;
 }
+.lead {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.intro {
+  font-size: 1.2rem;
+  font-weight: 200;
+  margin-bottom: 0.75rem;
+}
+
 @media screen and (min-width: 760px) {
   .slice:nth-of-type(odd) .row {
     flex-direction: row-reverse;
+  }
+  .intro {
+    font-size: 1.75rem;
   }
 }
 

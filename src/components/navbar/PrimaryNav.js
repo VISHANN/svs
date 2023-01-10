@@ -59,7 +59,9 @@ export default function PrimaryNav(props) {
           padding-inline: 1rem;
         }
         .nav a {
+          display: inline-block;
           padding: .875rem .5rem .625rem;
+          
           /* line-height creating the unwanted whitespace */
           line-height: 1;
 

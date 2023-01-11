@@ -21,7 +21,7 @@ body {
   color: var(--dark);
 }
 /* odd because it searches every element sibling of .slice and match those who are at odd position wrt list*/
-.slice:nth-of-type(odd) {
+.slice:nth-of-type(even) {
   background: var(--secondary);
   color: #fff;
 }

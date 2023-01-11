@@ -6,7 +6,6 @@ export default function Home() {
   
   return (
     <>
-      <PrimaryNav type="header"/>
       <Hero 
         title = "About Us"
         subtitle = "The Vivekanand School is one of the nations top college prep schools for offering students in kindergarten-grade 12 a high-quality, well-rounded and world-class education."/>
@@ -109,7 +108,6 @@ export default function Home() {
           </blockquote>
         </div>
       </div>
-      <Footer></Footer>
       <style jsx>{`
         
       `}</style>

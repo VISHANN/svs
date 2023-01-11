@@ -6,7 +6,6 @@ import Footer from "../components/footer";
 export default function Admission() {
   return(
     <>
-      <PrimaryNav type="header" />
       <Hero 
         title = "Admission"
         subtitle = "Learn about The Harker School's admission process."
@@ -53,7 +52,6 @@ export default function Admission() {
         lead = "Many things make Harker special, however our attention to each child’s journey is especially unique. Beginning in the lower school, and continuing throughout each student’s Harker journey, we carefully evaluate the course placement that best meets a student’s talents and interests to ensure that each is challenged, encouraged, engaged and inspired to be their personal and academic best. A vital part of that process involves the offering of extensive curricular and extracurricular offerings to help students discover and nurture talents they may not otherwise known they have. Our goal (and greatest joy) is to help all students uncover their unique gifts. We do this through our deep and varied offerings and through our incredible and inspiring faculty, for whom we search nationwide. Many hold advanced degrees, and all are passionate about teaching and focused on individual student success."
       /> 
       
-      <Footer></Footer>
     </>
   )
 }

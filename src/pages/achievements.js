@@ -52,13 +52,70 @@ export default function Achievements() {
         lead = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.        "
         />
 
+      <div className='results'>
+        <nav className="years">
+          <ul className='year-links'>
+            <li>
+              <button>2022</button>
+            </li>
+            <li>
+              <button>2022</button>
+            </li>
+            <li>
+              <button>2022</button>
+            </li>
+            <li>
+              <button>2022</button>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="container">
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+          <div className="t-row">
+            <span> Riya Sharma </span>
+            <span> 91.04%, XII </span>
+          </div>
+        </div>
+      </div>
       <style jsx>{`
-        span {
+        .fact {
           display: inline-block;
-          width: 100%;
+          width: 90%;
           text-align: center;
         }
-        span + span {
+        .fact + .fact {
           padding-top: 1rem;
         }
         .number {
@@ -68,6 +125,33 @@ export default function Achievements() {
         .label {
           font-size: 1.25rem;
           text-transform: capitalize;
+        }
+
+        .results {
+          position: relative;
+          background: var(--light);
+          color: var(--dark);
+        }
+        .year-links {
+          display: flex;
+          justify-content: space-around;
+
+          background: var(--primary);
+          color: white;
+        }
+        .year-links button {
+          padding: 1rem 0.5rem;
+          background: transparent;
+          color: inherit;
+          border: none;
+        }
+
+        .t-row {
+          display: flex;
+          justify-content: space-between;
+          padding-block: 0.5rem;
+          font-size: 1.1rem;
+          border-bottom: 1px solid var(--dark);
         }
         @media screen and (min-width: 47em) {
           span {

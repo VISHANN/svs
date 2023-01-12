@@ -95,6 +95,36 @@ export default function Hero(props) {
         .hero-subtitle {
           display: none;
         }
+        .row {
+          position: relative; 
+          top: 50%;
+          transform: translateY(-50%);
+          
+          width: 100%;
+          max-width: 75rem;
+          
+          /* Horizontal Center */
+          margin-inline: auto;
+        }
+        
+        .column {
+          width: 100%;
+          padding-left: 1rem;
+          margin-left: auto;
+        }
+        
+        .btn {
+          display: inline-block;
+          font-size: 1.125rem;
+          font-weight: 400;
+          color: var(--dark);
+          
+          padding: 0.5rem 1rem 0.5635rem;
+          text-align: center;
+        }
+        .btn-white {
+          background: #fff;
+        }
         @media all and (min-width: 760px) {
           .hero-subtitle {
             font-size: 1.5rem;
@@ -102,37 +132,11 @@ export default function Hero(props) {
             margin-bottom: 1.5em;
             display: block;
           }
+          .column {
+            width: 55%;
+          }
         }
-        .row {
-          position: relative; 
-          top: 50%;
-          transform: translateY(-50%);
-
-          width: 100%;
-          max-width: 75rem;
-
-          /* Horizontal Center */
-          margin-inline: auto;
-        }
-
-        .column {
-          width: 55%;
-          margin-left: auto;
-        }
-
-        .btn {
-          display: inline-block;
-          font-size: 1.125rem;
-          font-weight: 400;
-          color: var(--dark);
-
-          padding: 0.5rem 1rem 0.5635rem;
-          text-align: center;
-        }
-        .btn-white {
-          background: #fff;
-        }
-      `} </style>
+        `} </style>
     </div>
   )
 }

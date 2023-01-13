@@ -1,6 +1,6 @@
 export default function Slice(props) {
   return(
-    <div className="slice">
+    <section className="slice">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-4">
@@ -29,6 +29,6 @@ export default function Slice(props) {
           font-weight: 400;
         }
       `} </style>
-    </div>
+    </section>
   );
 }

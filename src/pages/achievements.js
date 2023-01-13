@@ -10,13 +10,18 @@ export default function Achievements() {
         subtitle = "A glimpse of what our students and Vivekananda team has achieved."
       />
       <PrimaryNav />
-      <Slice 
-        img = {{ src: "https://images.unsplash.com/photo-1582886986704-b8a1b2a74548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" }}
-        heading = "Priyansh Yadav"
-        subheading = "92.42%, XII Board, 2022"
-        lead = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.        "
-        />
-      <div className="slice facts">
+      <div className="slice">
+        <div className="container">
+          <h1 className="h1">
+            Our Achievements
+          </h1>
+          <p className="intro">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus velit ea, maxime quibusdam consequatur tempore, at omnis consectetur eligendi modi nemo quia amet inventore doloremque nihil. Distinctio quos assumenda error!
+          </p>
+        </div>
+      </div>
+      
+      <div className="facts">
         <div className="container">
           <span className="fact">
             <div className="number">
@@ -44,6 +49,13 @@ export default function Achievements() {
           </span>
         </div>
       </div>
+
+      <Slice 
+        img = {{ src: "https://images.unsplash.com/photo-1582886986704-b8a1b2a74548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" }}
+        heading = "Priyansh Yadav"
+        subheading = "92.42%, XII Board, 2022"
+        lead = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.        "
+        />
 
       <Slice 
         img = {{ src: "https://images.unsplash.com/photo-1582886986704-b8a1b2a74548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" }}
@@ -110,21 +122,26 @@ export default function Achievements() {
         </div>
       </div>
       <style jsx>{`
+
+        .facts {
+          position: relative;
+          background: #fff;
+        }
         .fact {
           display: inline-block;
-          width: 90%;
+          width: 100%;
           text-align: center;
-        }
-        .fact + .fact {
-          padding-top: 1rem;
+          padding-bottom: 1rem;
         }
         .number {
           font-size: 2.5rem;
           font-weight: 600;
+          color: var(--secondary);
         }
         .label {
           font-size: 1.25rem;
           text-transform: capitalize;
+          color: var(--dark);
         }
 
         .results {
@@ -154,7 +171,7 @@ export default function Achievements() {
           border-bottom: 1px solid var(--dark);
         }
         @media screen and (min-width: 47em) {
-          span {
+          .fact {
             width: 33.33333%;
           }
         }

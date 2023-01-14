@@ -1,9 +1,10 @@
 import Hero from '../components/hero'
 import PrimaryNav from '../components/navbar/PrimaryNav'
 import Slice from '../components/slice'
+import { clientPromise } from '../lib/mongodb'
 
 export default function Achievements() {
-  return(
+  return (
     <>
       <Hero 
         title = "Our Achievements"
@@ -26,3 +27,18 @@ export default function Achievements() {
     </>
   )
 } 
+
+export async function getStaticProps(context) {
+  try {
+    const client = await clientPromise,
+      db = client.db("svs");
+
+     await db.command({ ping: 1 }) ;
+     console.log("Connected to svs db successfully");
+     return {
+      props: {}
+     }
+  } catch(e) {
+    console.error(e);
+  }
+}

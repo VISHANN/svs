@@ -4,4 +4,4 @@ const MONGODB_URI  = process.env.MONGODB_URI;
 const clientPromise = new MongoClient(MONGODB_URI).connect();
 
 
-export { clientPromise };
+export { clientPromise }

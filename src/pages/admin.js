@@ -18,39 +18,66 @@ function Form() {
   const initialState = {
     name: "",
     fatherName: "",
-    percentage: "", // can be a number too
+    percentage: 0, // can be a number too
     class: "", // string
   }
-  const [record, setRecord] = useState(initialState);
+  const [state, setState] = useState(initialState);
 
   function handleChange(e) {
-    setRecord({
-      ...record,
+    setState({
+      ...state,
       [e.target.name]: e.target.value
     })
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    submitRecord(record);
+    const formData = state;
+    // formData percentage will always be a number string, or a number
+    formData.percentage = Number(formData.percentage);
+    submitRecord(formData);
   }
   return (
     <form onSubmit={handleSubmit}>
-      <input onChange={handleChange} value={record.name} type="text" name="name"/>
-      <input onChange={handleChange} value={record.fatherName} type="text" name="fatherName"/>
-      <input onChange={handleChange} value={record.class} type="text" name="class"/>
-      <input onChange={handleChange} value={record.percentage} type="text" name="percentage"/>
+      <input 
+        onChange={handleChange} 
+        value={state.name} 
+        type="text" 
+        name="name"/>
+
+      <input 
+        onChange={handleChange} 
+        value={state.fatherName} 
+        type="text" 
+        name="fatherName"/>
+
+      <input 
+        onChange={handleChange} 
+        value={state.class} 
+        type="text" 
+        name="class"/>
+
+      <input 
+        onChange={handleChange} 
+        value={state.percentage} 
+        type="number" 
+        name="percentage"
+        step={.01}
+        min={0}
+        max={100}/>
+
       <button>Submit</button>
     </form>
   )
 }
-async function submitRecord(record) {
+async function submitRecord(data) {
   const options = {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(record)
+    body: JSON.stringify(data)
   }
-  const res = await fetch('http://localhost:4000/people', options);
+  console.log(typeof data.percentage);
+  // const res = await fetch('http://localhost:4000/people', options);
 }

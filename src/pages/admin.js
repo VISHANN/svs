@@ -2,79 +2,55 @@ import { useState } from "react"
 import Hero from "../components/hero";
 
 export default function Admin() {
+  const n = 5;
   
   return(
     <>
       <Hero />
       <div className="slice container">
-        <Form />
+      {[...Array(n).keys()].map((record, index) => <Form key={index} />)}
       </div>
     </>
   )
 }
 
 function Form() {
-  // this does not accomodate year
-  const initialState = [];
-  for ( let i = 0; i < 5; i++ ) {
-    initialState.push(
-      {
-      isLocked : false,
-      name: "Ujjwal",
-      fatherName: "",
-      percentage: "", // can be a number too
-      class: "", // string
-      });
+  const initialState = {
+    name: "",
+    fatherName: "",
+    percentage: "", // can be a number too
+    class: "", // string
   }
+  const [record, setRecord] = useState(initialState);
 
-  const [state, setState] = useState(initialState);
+  function handleChange(e) {
+    setRecord({
+      ...record,
+      [e.target.name]: e.target.value
+    })
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(state);
+    submitRecord(record);
   }
-  function handleChange(e) {
-    let name = e.target.name,
-      value = e.target.value;
-    let targetIndex = Number(e.target.dataset.index);
-
-    setState(prevState => {
-      const record = prevState[targetIndex];
-      prevState[targetIndex] = {
-        ...record,
-        [name]: value
-      }
-      return prevState;
-    })
-
-    e.target.value = state[targetIndex].name
-    console.log(state);
-  }
-  const list = state.map((record, index) => 
-        <div key={index}>
-          <input onChange={handleChange} data-index={index} name="name" value={state[index].name} type="text"/>
-          <input onChange={handleChange} data-index={index} name="fatherName" value={state[index].fatherName} type="text"/>
-          <input onChange={handleChange} data-index={index} name="class" value={state[index].class} type="text"/>
-          <input onChange={handleChange} data-index={index} name="percentage" value={state[index].percentage} type="text"/>
-        </div>
-      )
-
   return (
     <form onSubmit={handleSubmit}>
-      {list}
-
-      <input type="submit"></input>
+      <input onChange={handleChange} value={record.name} type="text" name="name"/>
+      <input onChange={handleChange} value={record.fatherName} type="text" name="fatherName"/>
+      <input onChange={handleChange} value={record.class} type="text" name="class"/>
+      <input onChange={handleChange} value={record.percentage} type="text" name="percentage"/>
+      <button>Submit</button>
     </form>
   )
 }
-
-async function addStudentToDB(student) {
+async function submitRecord(record) {
   const options = {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(student)
+    body: JSON.stringify(record)
   }
   const res = await fetch('http://localhost:4000/people', options);
 }

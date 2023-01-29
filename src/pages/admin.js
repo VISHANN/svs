@@ -51,11 +51,24 @@ function Form() {
         type="text" 
         name="fatherName"/>
 
-      <input 
-        onChange={handleChange} 
-        value={state.class} 
-        type="text" 
-        name="class"/>
+      <span 
+        onChange={handleChange} >
+          <label>
+            <input 
+              type="radio" 
+              name="class"
+              value="XII"
+              defaultChecked/> 
+              XII
+          </label>
+          <label>
+            <input 
+              type="radio" 
+              name="class"
+              value="X"/> 
+              X
+          </label>
+      </span>
 
       <input 
         onChange={handleChange} 
@@ -78,6 +91,6 @@ async function submitRecord(data) {
     },
     body: JSON.stringify(data)
   }
-  console.log(typeof data.percentage);
+  console.log(data);
   // const res = await fetch('http://localhost:4000/people', options);
 }

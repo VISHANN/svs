@@ -14,6 +14,10 @@ export default function Admin() {
   )
 }
 
+// Custom Layout for Admin Page, that returns the page as it is`
+
+Admin.getLayout = (page) => page;
+
 function Form() {
   const initialState = {
     name: "",

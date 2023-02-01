@@ -4,6 +4,7 @@ export default function Admin() {
   const initialState = [];
   for ( let i=0; i < totalEntries ; i++) {
     initialState.push({
+      isLocked: false,
       name: "",
       fatherName: "",
       percentage: 0, // can be a number too
@@ -34,7 +35,15 @@ export default function Admin() {
     formData.percentage = Number(formData.percentage);
     submitRecord(formData);
   }
-
+  
+  function toggleLock(index) {
+    const tempState = [...state];
+    tempState[index] = {
+      ...tempState[index],
+      isLocked: !tempState[index].isLocked,
+    }
+    setState(tempState);
+  }
   return(
     <main>
       <h1>Welcome svs_admin</h1>
@@ -46,6 +55,7 @@ export default function Admin() {
                 index={index}
                 data={record}
                 handleChange={handleChange}
+                toggleLock={toggleLock}
               />)
           )}
         </form>
@@ -61,7 +71,7 @@ export default function Admin() {
   )
 }
 
-function InputRow({ data, handleChange, index }) {  
+function InputRow({ data, handleChange, index, toggleLock }) {  
   return (
     <div className="inline-form">
       <input 
@@ -113,7 +123,9 @@ function InputRow({ data, handleChange, index }) {
         min={0}
         max={100}/>
 
-      <button>Submit</button>
+      <button onClick={() => toggleLock(index)}>
+        {data.isLocked ? "Unlock" : "Lock"}
+      </button>
     </div>
   )
 }

@@ -1,37 +1,30 @@
 import { useState } from "react"
-import Hero from "../components/hero";
-
 export default function Admin() {
-  const n = 5;
-  
-  return(
-    <>
-      <Hero />
-      <div className="slice container">
-      {[...Array(n).keys()].map((record, index) => <Form key={index} />)}
-      </div>
-    </>
-  )
-}
-
-// Custom Layout for Admin Page, that returns the page as it is`
-
-Admin.getLayout = (page) => page;
-
-function Form() {
-  const initialState = {
-    name: "",
-    fatherName: "",
-    percentage: 0, // can be a number too
-    class: "", // string
+  const totalEntries = 5;
+  const initialState = [];
+  for ( let i=0; i < totalEntries ; i++) {
+    initialState.push({
+      name: "",
+      fatherName: "",
+      percentage: 0, // can be a number too
+      class: "", // string
+    });
   }
   const [state, setState] = useState(initialState);
 
   function handleChange(e) {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
+    const index = e.target.dataset.index,
+      name = e.target.name,
+      value = e.target.value;
+
+    // assigning state to tempState copies the array ref not the array itself
+    const tempState = [...state];
+    tempState[index] = {
+      ...tempState[index],
+      [name]: value
+    }    
+
+    setState(tempState);
   }
 
   function handleSubmit(e) {
@@ -41,42 +34,79 @@ function Form() {
     formData.percentage = Number(formData.percentage);
     submitRecord(formData);
   }
+
+  return(
+    <main>
+      <h1>Welcome svs_admin</h1>
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          {state.map((record, index) => (
+              <InputRow 
+                key={index}
+                index={index}
+                data={record}
+                handleChange={handleChange}
+              />)
+          )}
+        </form>
+      </div>
+      <style jsx>{`
+        main {
+          min-height: 100vh;
+          min-width: 100%;
+          background: var(--light);
+        }
+      `}</style>
+    </main>
+  )
+}
+
+function InputRow({ data, handleChange, index }) {  
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="inline-form">
       <input 
-        onChange={handleChange} 
-        value={state.name} 
+        onChange={handleChange}
+        data-index={index} 
+        value={data.name} 
         type="text" 
         name="name"/>
 
       <input 
-        onChange={handleChange} 
-        value={state.fatherName} 
+        onChange={handleChange}
+        data-index={index} 
+        value={data.fatherName} 
         type="text" 
         name="fatherName"/>
 
-      <span 
-        onChange={handleChange} >
+      <span>
           <label>
             <input 
-              type="radio" 
+              data-index={index}
+              checked={data.class === "XII"}
+              onChange={handleChange}
+              type="checkbox" 
               name="class"
               value="XII"
-              defaultChecked/> 
-              XII
+            /> 
+            XII
           </label>
           <label>
             <input 
-              type="radio" 
+              data-index={index}
+              checked={data.class === "X"}
+              onChange={handleChange}
+              type="checkbox" 
               name="class"
-              value="X"/> 
-              X
+              value="X"
+            /> 
+            X
           </label>
       </span>
 
       <input 
-        onChange={handleChange} 
-        value={state.percentage} 
+        onChange={handleChange}
+        data-index={index} 
+        value={data.percentage} 
         type="number" 
         name="percentage"
         step={.01}
@@ -84,7 +114,7 @@ function Form() {
         max={100}/>
 
       <button>Submit</button>
-    </form>
+    </div>
   )
 }
 async function submitRecord(data) {
@@ -98,3 +128,7 @@ async function submitRecord(data) {
   console.log(data);
   // const res = await fetch('http://localhost:4000/people', options);
 }
+
+// Custom Layout for Admin Page, that returns the page as it is`
+
+Admin.getLayout = (page) => page;

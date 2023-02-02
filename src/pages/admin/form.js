@@ -1,5 +1,6 @@
 import { useState } from "react"
-export default function Admin() {
+
+export default function Form() {
   const totalEntries = 5;
   const initialState = [];
   for ( let i=0; i < totalEntries ; i++) {
@@ -17,14 +18,18 @@ export default function Admin() {
     const index = e.target.dataset.index,
       name = e.target.name,
       value = e.target.value;
+      
+    // if the record isLocked, don't change the state
+    if (state[index].isLocked === true) return;
 
     // assigning state to tempState copies the array ref not the array itself
     const tempState = [...state];
+    
+    // followed a different method to update record inside toggleLock
     tempState[index] = {
       ...tempState[index],
       [name]: value
-    }    
-
+    }
     setState(tempState);
   }
 
@@ -38,10 +43,10 @@ export default function Admin() {
   
   function toggleLock(index) {
     const tempState = [...state];
-    tempState[index] = {
-      ...tempState[index],
-      isLocked: !tempState[index].isLocked,
-    }
+
+    // as long as tempState points to different reference react registers 
+    // state change and re-renders
+    tempState[index].isLocked = !tempState[index].isLocked;
     setState(tempState);
   }
   return(
@@ -143,4 +148,4 @@ async function submitRecord(data) {
 
 // Custom Layout for Admin Page, that returns the page as it is`
 
-Admin.getLayout = (page) => page;
+Form.getLayout = (page) => page;

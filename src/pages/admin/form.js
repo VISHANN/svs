@@ -13,15 +13,17 @@ export default function Form() {
     });
   }
   const [state, setState] = useState(initialState);
-  const [year, setYear] = useState(new Date().getFullYear() - 1);
-  const [isValidYear, setIsValidYear] = useState(false);
+  const [year, setYear] = useState({
+    value: new Date().getFullYear(),
+    isValid: false,
+  });
 
   useEffect(() => {
-    fetch(`http://localhost:4000/people/${year}`)
+    fetch(`http://localhost:4000/people/${year.value}`)
       .then(res => res.json())
-      .then(people => (people.length > 0) ? setIsValidYear(false) : setIsValidYear(true))
+      .then(people => (people.length > 0) ? setYear({...year, isValid: false}) : setYear({...year, isValid: true}))
       .catch(err => console.log(err));
-  }, [year]);
+  }, [year.value]);
   
   function handleChange(e) {
     const index = e.target.dataset.index,
@@ -53,7 +55,7 @@ export default function Form() {
       // percentage is String due to e.target.value
       record.percentage = Number(record.percentage);
 
-      record.year = year;
+      record.year = year.value;
       return record;
     });
 
@@ -86,17 +88,17 @@ export default function Form() {
       <div className="container">
         <label>
           Session:
+          {year.value - 1}
+          -
           <input 
             type={"number"}
-            value={year}
-            onChange={(e) => setYear(Number(e.target.value))}
+            value={year.value}
+            onChange={(e) => setYear({...year, value: Number(e.target.value)})}
             min="2000"
           />
-          -
-          {year+1}
         </label>
         <span>
-          {isValidYear ? "valid" : "invalid"}
+          {year.isValid ? "valid" : "invalid"}
         </span>
         <button onClick={addRow}>
           Add another record

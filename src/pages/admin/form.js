@@ -26,6 +26,13 @@ export default function Form() {
   }, [year.value]);
   
   function handleChange(e) {
+
+    // if invalid year diallow user to edit
+    if (!year.isValid) {
+      alert("Records from this year already exist");
+      return;
+    }
+
     const index = e.target.dataset.index,
       name = e.target.name,
       value = e.target.value;

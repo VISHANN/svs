@@ -26,7 +26,7 @@ export default function Form() {
     // assigning state to tempState copies the array ref not the array itself
     const tempState = [...state];
     
-    // followed a different method to update record inside toggleLock
+    // followed a different approach to update record inside toggleLock
     tempState[index] = {
       ...tempState[index],
       [name]: value
@@ -36,12 +36,20 @@ export default function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const formData = state;
 
-    // formData percentage will always be a number string, or a number
-    formData.percentage = Number(formData.percentage);
+    // filter records which are locked
+    let records = state.filter(record => record.isLocked && record);
 
-    submitRecord(formData);
+    // map returns a new array after applying the function
+    const data = records.map(record => {
+      // percentage is String due to e.target.value
+      record.percentage = Number(record.percentage);
+
+      record.year = year;
+      return record;
+    });
+
+    submitRecord(data);
   }
   
   function toggleLock(index) {

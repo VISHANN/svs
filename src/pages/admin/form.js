@@ -13,6 +13,7 @@ export default function Form() {
     });
   }
   const [state, setState] = useState(initialState);
+  const [year, setYear] = useState(new Date().getFullYear() - 1);
 
   function handleChange(e) {
     const index = e.target.dataset.index,
@@ -36,8 +37,10 @@ export default function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = state;
+
     // formData percentage will always be a number string, or a number
     formData.percentage = Number(formData.percentage);
+
     submitRecord(formData);
   }
   
@@ -53,6 +56,17 @@ export default function Form() {
     <main>
       <h1>Welcome svs_admin</h1>
       <div className="container">
+        <label>
+          Session:
+          <input 
+            type={"number"}
+            value={year}
+            onChange={(e) => setYear(Number(e.target.value))}
+            min="2000"
+          />
+          -
+          {year+1}
+        </label>
         <form onSubmit={handleSubmit}>
           {state.map((record, index) => (
               <InputRow 

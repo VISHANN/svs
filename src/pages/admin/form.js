@@ -121,15 +121,17 @@ function InputRow({ data, handleChange, index, toggleLock }) {
         data-index={index} 
         value={data.name} 
         type="text" 
-        name="name"/>
-
+        name="name"
+        placeholder="name"
+      />
       <input 
         onChange={handleChange}
         data-index={index} 
         value={data.fatherName} 
         type="text" 
-        name="fatherName"/>
-
+        name="fatherName"
+        placeholder="fatherName"
+      />
       <span>
           <label>
             <input 
@@ -138,6 +140,7 @@ function InputRow({ data, handleChange, index, toggleLock }) {
               onChange={handleChange}
               type="checkbox" 
               name="class"
+              placeholder="class"
               value="XII"
             /> 
             XII
@@ -149,6 +152,7 @@ function InputRow({ data, handleChange, index, toggleLock }) {
               onChange={handleChange}
               type="checkbox" 
               name="class"
+              placeholder="class"
               value="X"
             /> 
             X
@@ -161,6 +165,7 @@ function InputRow({ data, handleChange, index, toggleLock }) {
         value={data.percentage} 
         type="number" 
         name="percentage"
+        placeholder="percentage"
         step={.01}
         min={0}
         max={100}/>

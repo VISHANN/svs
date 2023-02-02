@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Form() {
   const totalEntries = 5;
@@ -14,7 +14,15 @@ export default function Form() {
   }
   const [state, setState] = useState(initialState);
   const [year, setYear] = useState(new Date().getFullYear() - 1);
+  const [isValidYear, setIsValidYear] = useState(false);
 
+  useEffect(() => {
+    fetch(`http://localhost:4000/people/${year}`)
+      .then(res => res.json())
+      .then(people => (people.length > 0) ? setIsValidYear(false) : setIsValidYear(true))
+      .catch(err => console.log(err));
+  }, [year]);
+  
   function handleChange(e) {
     const index = e.target.dataset.index,
       name = e.target.name,
@@ -87,6 +95,9 @@ export default function Form() {
           -
           {year+1}
         </label>
+        <span>
+          {isValidYear ? "valid" : "invalid"}
+        </span>
         <button onClick={addRow}>
           Add another record
         </button>

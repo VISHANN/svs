@@ -60,6 +60,18 @@ export default function Form() {
     tempState[index].isLocked = !tempState[index].isLocked;
     setState(tempState);
   }
+
+  function addRow () {
+    const tempState = [...state];
+    tempState.push({
+      isLocked: false,
+      name: "",
+      fatherName: "",
+      percentage: 0, 
+      class: "", 
+    })
+    setState(tempState);
+  }
   return(
     <main>
       <h1>Welcome svs_admin</h1>
@@ -75,6 +87,9 @@ export default function Form() {
           -
           {year+1}
         </label>
+        <button onClick={addRow}>
+          Add another record
+        </button>
         <form onSubmit={handleSubmit}>
           {state.map((record, index) => (
               <InputRow 
@@ -150,7 +165,10 @@ function InputRow({ data, handleChange, index, toggleLock }) {
         min={0}
         max={100}/>
 
-      <button onClick={() => toggleLock(index)}>
+      <button 
+        type="button"
+        onClick={() => toggleLock(index)}
+      >
         {data.isLocked ? "Unlock" : "Lock"}
       </button>
     </div>
@@ -165,7 +183,7 @@ async function submitRecord(data) {
     body: JSON.stringify(data)
   }
   console.log(data);
-  // const res = await fetch('http://localhost:4000/people', options);
+  const res = await fetch('http://localhost:4000/people', options);
 }
 
 // Custom Layout for Admin Page, that returns the page as it is`

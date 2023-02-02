@@ -57,6 +57,8 @@ export default function Form() {
     // filter records which are locked
     let records = state.filter(record => record.isLocked && record);
 
+    if (!records.length) return;
+
     // map returns a new array after applying the function
     const data = records.map(record => {
       // percentage is String due to e.target.value

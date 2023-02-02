@@ -120,6 +120,10 @@ export default function Form() {
                 toggleLock={toggleLock}
               />)
           )}
+
+          <button type="submit">
+            submit
+          </button>
         </form>
       </div>
       <style jsx>{`

@@ -1,5 +1,13 @@
 import { useState } from 'react';
 
+const recordSchema = {
+  isLocked: false,
+  name: "",
+  fatherName: "",
+  percentage: 0,
+  className: "",
+}
+
 export default function Admin () {
   return(
     <div className='container'>
@@ -13,8 +21,6 @@ function Form (props) {
   const [year, setYear] = useState(new Date().getFullYear());
   const [isUpdate, setIsUpdate] = useState(false);
   const [records, setRecords] = useState(getInitialState())
-
-  console.log(year);
 
   function handleYearChange(e) {
     let value = Number(e.target.value);
@@ -34,6 +40,11 @@ function Form (props) {
         setRecords(DBToState(records));
         return;
       })
+  }
+  function addRow() {
+    const t = [...records];
+    t.push(recordSchema);
+    setRecords(t);
   }
   function handleChange(e) {
     const index = e.target.dataset.index,
@@ -98,6 +109,11 @@ function Form (props) {
           <span className='isUpdate'>
             {(isUpdate) ? 'records found' : 'records not found'}
           </span>
+          <button 
+            type='button'
+            onClick={addRow}>
+              Add row
+            </button>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -120,9 +136,8 @@ function Form (props) {
           </div>
           {records.map((record, index) => {
             return (
-              <div className='grid-row'>
+              <div className='grid-row' key={index}>
                 <InputRow 
-                  key={index}
                   index={index}
                   data={record}
                   handleChange={handleChange}
@@ -214,18 +229,10 @@ function InputRow({ data, index, handleChange, toggleLock }) {
 }
 
 function getInitialState() {
-  const stateSchema = {
-    isLocked: false,
-    name: "",
-    fatherName: "",
-    percentage: 0,
-    className: "",
-  }
-
   let initialState = [];
 
   for (let i = 0; i < 5; i++) {
-    initialState.push(stateSchema);
+    initialState.push(recordSchema);
   }
   return initialState;
 }
@@ -237,7 +244,7 @@ function DBToState(records) {
   return records;
 }
 
-function submitRecord(data, isUpdate) {
+async function submitRecord(data, isUpdate) {
   const body = {
     data,
     isUpdate,
@@ -249,7 +256,9 @@ function submitRecord(data, isUpdate) {
     },
     body: JSON.stringify(body)
   }
-  fetch('http://localhost:4000/people', options);
+  fetch('http://localhost:4000/people', options)
+    .then(res => res.status === 200 ? alert('Update Successful') : alert('Update Unsuccessful'))
+    .catch(err => alert(err));
 }
 
 

@@ -72,6 +72,26 @@ function Form (props) {
     tempState[index].isLocked = !tempState[index].isLocked;
     setRecords(tempState);
   }
+  async function deleteRecord(index) {
+    const t = [...records];
+    // delete an existing document in DB
+    if (t[index]._id) {
+      const options = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      }
+
+      const res = await fetch('http://localhost:4000/people/'+t[index]._id, options);
+      if(!res.ok) alert("Update failed");
+    }
+
+    // now pop from array and set this array as state
+    t.splice(index, 1);
+    setRecords(t);
+
+  }
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -92,6 +112,7 @@ function Form (props) {
 
     submitRecord(data, isUpdate);
   }
+
   return(
     <div style={{paddingTop: "1rem"}}>
       <div>
@@ -142,6 +163,7 @@ function Form (props) {
                   data={record}
                   handleChange={handleChange}
                   toggleLock={toggleLock}
+                  deleteRecord={deleteRecord}
                 />
               </div>
             )
@@ -162,7 +184,7 @@ function Form (props) {
   )
 }
 
-function InputRow({ data, index, handleChange, toggleLock }) {  
+function InputRow({ data, index, handleChange, toggleLock, deleteRecord }) {  
   return (
     <>
       <input 
@@ -218,12 +240,19 @@ function InputRow({ data, index, handleChange, toggleLock }) {
         min={0}
         max={100}/>
 
-      <button 
-        type="button"
-        onClick={() => toggleLock(index)}>
+      <div>
+        <button 
+          type="button"
+          onClick={() => toggleLock(index)}>
 
-        {data.isLocked ? "Unlock" : "Lock"}
-      </button>
+          {data.isLocked ? "Unlock" : "Lock"}
+        </button>
+        <button 
+          type="button"
+          onClick={() => deleteRecord(index)}>
+          D
+        </button>
+      </div>
     </>
   )
 }

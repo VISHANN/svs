@@ -36,13 +36,18 @@ function Form (props) {
 
         if (records.length === 0) {
           setIsUpdate(false);
-          setRecords(getInitialState());
-          return;
+          return setRecords(getInitialState());
+          
         }
+        
+        // records loaded don't have isLocked as newly created rows do
+        records.forEach(record => {
+          record.isLocked = false;
+        });
 
         setIsUpdate(true);
-        setRecords(DBToState(records));
-        return;
+        return setRecords(records);
+        
       })
   }
   function addRow() {

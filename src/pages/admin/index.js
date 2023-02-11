@@ -20,7 +20,7 @@ export default function Admin () {
 function Form (props) {
   const [year, setYear] = useState(new Date().getFullYear());
   const [isUpdate, setIsUpdate] = useState(false);
-  const [records, setRecords] = useState(getInitialState())
+  const [records, setRecords] = useState(getInitialState());
 
   function handleYearChange(e) {
     let value = Number(e.target.value);
@@ -185,6 +185,8 @@ function Form (props) {
 }
 
 function InputRow({ data, index, handleChange, toggleLock, deleteRecord }) {  
+  const [showDialog, setShowDialog] = useState(false);
+
   return (
     <>
       <input 
@@ -249,14 +251,46 @@ function InputRow({ data, index, handleChange, toggleLock, deleteRecord }) {
         </button>
         <button 
           type="button"
-          onClick={() => deleteRecord(index)}>
+          onClick={() => setShowDialog(true)}>
           D
         </button>
+        <Dialog 
+          showDialog={showDialog}
+          cancel={() => setShowDialog(false)}
+          action={() => deleteRecord(index)} />
       </div>
     </>
   )
 }
-
+function Dialog({ showDialog, cancel, action }) {
+  return(
+    <div className='dialog'>
+      <h3>Sure ?</h3>
+      <button
+        type='button'
+        onClick={action}
+      >
+        delete
+      </button>
+      <button
+        type='button'
+        onClick={cancel}
+      > 
+        cancel
+        </button>
+      <style jsx>{`
+        .dialog {
+          position: fixed;
+          top: 0;
+          left: 50%;
+          width: 30rem;
+          transform: ${showDialog ? "translateY(0)" : "translateY(-100%)"};
+          transition: transform 0.2s linear;
+        }
+      `}</style>
+    </div>
+  )
+}
 function getInitialState() {
   let initialState = [];
 

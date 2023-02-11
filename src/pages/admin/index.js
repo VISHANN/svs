@@ -21,6 +21,10 @@ function Form (props) {
   const [year, setYear] = useState(new Date().getFullYear());
   const [isUpdate, setIsUpdate] = useState(false);
   const [records, setRecords] = useState(getInitialState());
+  const [dialog, setDialog] = useState({
+    isVisible: false,
+    index: null,
+  })
 
   function handleYearChange(e) {
     let value = Number(e.target.value);
@@ -90,6 +94,7 @@ function Form (props) {
     // now pop from array and set this array as state
     t.splice(index, 1);
     setRecords(t);
+    setDialog({ isVisible: false, index: null});
 
   }
   function handleSubmit(e) {
@@ -157,13 +162,13 @@ function Form (props) {
           </div>
           {records.map((record, index) => {
             return (
-              <div className='grid-row' key={index}>
+              <div className='grid-row' key={record._id || index}>
                 <InputRow 
                   index={index}
                   data={record}
                   handleChange={handleChange}
                   toggleLock={toggleLock}
-                  deleteRecord={deleteRecord}
+                  flagDelete={() => setDialog({ isVisible:true, index })}
                 />
               </div>
             )
@@ -171,6 +176,12 @@ function Form (props) {
           <button type={'submit'}>
             {isUpdate ? 'Update' : 'Add New Year'}
           </button>
+
+          <Dialog 
+            isVisible={dialog.isVisible}
+            name={dialog.index !== null && records[dialog.index].name}
+            cancel={() => setDialog({ isVisible: false, index: null })}
+            remove={() => deleteRecord(dialog.index)} />
         </form>
         <style jsx>{`
           .grid-row {
@@ -184,9 +195,7 @@ function Form (props) {
   )
 }
 
-function InputRow({ data, index, handleChange, toggleLock, deleteRecord }) {  
-  const [showDialog, setShowDialog] = useState(false);
-
+function InputRow({ data, index, handleChange, toggleLock, flagDelete }) {  
   return (
     <>
       <input 
@@ -251,41 +260,56 @@ function InputRow({ data, index, handleChange, toggleLock, deleteRecord }) {
         </button>
         <button 
           type="button"
-          onClick={() => setShowDialog(true)}>
+          onClick={flagDelete}>
           D
         </button>
-        <Dialog 
-          showDialog={showDialog}
-          cancel={() => setShowDialog(false)}
-          action={() => deleteRecord(index)} />
       </div>
     </>
   )
 }
-function Dialog({ showDialog, cancel, action }) {
+function Dialog({ name, isVisible, cancel, remove }) {
   return(
-    <div className='dialog'>
-      <h3>Sure ?</h3>
-      <button
-        type='button'
-        onClick={action}
-      >
-        delete
-      </button>
-      <button
-        type='button'
-        onClick={cancel}
-      > 
-        cancel
+    <div className='fullscreen'>
+      <div className="dialog">
+        <p className="lead">
+          Do you want to permanently delete {name}'s record ?
+        </p>
+        <button
+          type='button'
+          onClick={remove}
+        >
+          delete
         </button>
+        <button
+          type='button'
+          onClick={cancel}
+        > 
+          cancel
+          </button>
+      </div>
       <style jsx>{`
-        .dialog {
+        .fullscreen {
           position: fixed;
           top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.2);
+          
+          transform: ${isVisible ? "translateY(0)" : "translateY(-100%)"};
+          transition: transform 0.1s linear;
+        }
+        .dialog {
+          position: absolute;
+          top: 10%;
+          
           left: 50%;
+          transform: translateX(-50%);
+
           width: 30rem;
-          transform: ${showDialog ? "translateY(0)" : "translateY(-100%)"};
-          transition: transform 0.2s linear;
+          padding: 1rem 2rem;
+          background: white;
+          border-radius: 1rem;
         }
       `}</style>
     </div>

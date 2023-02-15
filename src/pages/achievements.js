@@ -1,9 +1,9 @@
 import Hero from '../components/hero'
 import PrimaryNav from '../components/navbar/PrimaryNav'
 import Slice from '../components/slice'
-import { clientPromise } from '../lib/mongodb'
+import { Tabs } from '../components/achievements';
 
-export default function Achievements() {
+export default function Achievements({ records }) {
   return (
     <>
       <Hero 
@@ -23,22 +23,53 @@ export default function Achievements() {
         subheading = "82.42%, XII Board, 2022"
         lead = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.        "
         />
-    
+
+      <section>
+        <div className="tab-container">
+          <Tabs records={records} />  
+        </div>
+      </section>     
+      <style jsx>{`
+        section {
+          position: relative;
+          background: white;
+
+          padding-block: 0.5rem;
+          background: var(--light);
+        }
+        .tab-container {
+          position: relative;
+
+          width: max-content;
+
+          margin-inline: auto;
+          margin-top: 5rem;
+          
+          background: white;
+          border-radius: 2rem;
+
+          padding: 3rem 1.5rem;
+        }
+      `} </style> 
     </>
   )
 } 
 
-export async function getStaticProps(context) {
-  try {
-    const client = await clientPromise,
-      db = client.db("svs");
 
-     await db.command({ ping: 1 }) ;
-     console.log("Connected to svs db successfully");
-     return {
-      props: {}
-     }
-  } catch(e) {
-    console.error(e);
+export async function getStaticProps(context) {
+  let year = new Date().getFullYear();
+  const LAST_EXISTING_YEAR = 2019;
+  const records = {};
+
+  while (Object.keys(records).length < 4 && year !== LAST_EXISTING_YEAR) {
+    const yearRecords = await fetch(`http://localhost:4000/people/${year}`).then(res => res.json());
+    if (yearRecords.length > 0) records[year] = yearRecords;
+    year--;
+  }
+
+  return {
+    props: {
+      records,
+    },
   }
 }

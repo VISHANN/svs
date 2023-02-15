@@ -1,6 +1,8 @@
 import { Fragment } from 'react';
 
 export default function Table({ records }) {
+  records.sort(descendCompareRecords);
+
   return (
     <div className='table'>
       <div className="table-grid">
@@ -65,4 +67,18 @@ export default function Table({ records }) {
       `}</style>
     </div>
   )
+}
+
+function descendCompareRecords (a, b) {
+  // a, b are both record objects, which contain the sorting variable "percentage"
+  a = a.percentage, 
+  b = b.percentage;
+  
+  if (a > b) {
+    return -1;
+  } else if (a < b) {
+    return 1;
+  } else {
+    return 0;
+  }
 }

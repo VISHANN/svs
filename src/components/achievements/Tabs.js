@@ -2,13 +2,7 @@ import { useState } from "react";
 import Table from "./Table";
 
 export default function Tabs({ records }) {
-  const sortedYears = Object.keys(records).sort((a, b) => {
-    if (a > b) {
-      return -1;
-    } else {
-      return 1;
-    }
-  }); // ['2022', '2021]
+  const sortedYears = Object.keys(records).sort(descendCompareFn); // ['2022', '2021]
   
   const [activeYear, setActiveYear] = useState(sortedYears[0]);
 
@@ -57,4 +51,22 @@ export default function Tabs({ records }) {
       `}</style>
     </>
   )
+}
+
+function descendCompareFn(a, b) {
+
+  /* 
+    for ascending return value,
+      positive means a > b
+      negative means a < b
+      zero     means a = b
+  */
+
+  if (a > b) {
+    return -1;
+  } else if (a < b) {
+    return 1;
+  } else {
+    return 0;
+  }
 }

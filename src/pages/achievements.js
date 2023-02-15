@@ -32,18 +32,18 @@ export default function Achievements({ records }) {
       <style jsx>{`
         section {
           position: relative;
-          background: white;
 
-          padding-block: 0.5rem;
+          padding-block: min(10%, 5rem);
           background: var(--light);
+
         }
         .tab-container {
           position: relative;
 
-          width: max-content;
+          width: 100%;
+          max-width: max-content;
 
           margin-inline: auto;
-          margin-top: 5rem;
           
           background: white;
           border-radius: 2rem;

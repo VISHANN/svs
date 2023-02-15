@@ -37,6 +37,8 @@ export default function Tabs({ records }) {
         .tab-items {
           position: relative;
           display: flex;
+
+          padding-left: 1.5rem;
         }
         .tab-item {
           padding-inline: 1rem;

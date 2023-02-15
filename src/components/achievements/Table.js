@@ -38,15 +38,16 @@ export default function Table({ records }) {
         })}
       </div>
       <style jsx>{`
+        .table {
+          position: relative;
+          overflow-x: scroll;
+        }
         .table-grid {
           display: grid;
           grid-template-rows: auto;
           grid-template-columns: repeat(4, max-content);
 
           padding: 3rem 1.5rem .5rem;
-        }
-        .table {
-          position: relative;
         }
         .head {
           color: #333;

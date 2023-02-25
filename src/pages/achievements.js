@@ -1,9 +1,10 @@
 import Hero from '../components/hero'
 import PrimaryNav from '../components/navbar/PrimaryNav'
 import Slice from '../components/slice'
+import { Tabs } from '../components/achievements';
 
-export default function Achievements() {
-  return(
+export default function Achievements({ records }) {
+  return (
     <>
       <Hero 
         title = "Our Achievements"
@@ -21,161 +22,54 @@ export default function Achievements() {
         </div>
       </div>
       
-      <div className="facts">
-        <div className="container">
-          <span className="fact">
-            <div className="number">
-              2884
-            </div>
-            <div className="label">
-              Students Educated
-            </div>
-          </span>
-          <span className="fact">
-            <div className="number">
-              500
-            </div>
-            <div className="label">
-              First Division
-            </div>
-          </span>
-          <span className="fact">
-            <div className="number">
-              95%
-            </div>
-            <div className="label">
-              Pass Percentage
-            </div>
-          </span>
+      
+      
+      <section>
+        <div className="tab-container">
+          <Tabs records={records} />  
         </div>
-      </div>
-
-      <Slice 
-        img = {{ src: "https://images.unsplash.com/photo-1582886986704-b8a1b2a74548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" }}
-        heading = "Priyansh Yadav"
-        subheading = "92.42%, XII Board, 2022"
-        lead = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.        "
-        />
-
-      <Slice 
-        img = {{ src: "https://images.unsplash.com/photo-1582886986704-b8a1b2a74548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" }}
-        heading = "Yash Sharma"
-        subheading = "82.42%, XII Board, 2022"
-        lead = " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere officia ab commodi cum recusandae ullam eveniet nihil, aliquam impedit repudiandae sit illum, cupiditate odio omnis magni saepe quos incidunt. Nam deleniti error aspernatur cumque saepe perspiciatis repudiandae temporibus commodi? Est quisquam expedita quia repellat eaque sunt inventore accusantium facilis veniam.        "
-        />
-
-      <div className='results'>
-        <nav className="years">
-          <ul className='year-links'>
-            <li>
-              <button>2022</button>
-            </li>
-            <li>
-              <button>2022</button>
-            </li>
-            <li>
-              <button>2022</button>
-            </li>
-            <li>
-              <button>2022</button>
-            </li>
-          </ul>
-        </nav>
-
-        <div className="container">
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-          <div className="t-row">
-            <span> Riya Sharma </span>
-            <span> 91.04%, XII </span>
-          </div>
-        </div>
-      </div>
+      </section>     
       <style jsx>{`
-
-        .facts {
+        section {
           position: relative;
-          background: #fff;
-        }
-        .fact {
-          display: inline-block;
-          width: 100%;
-          text-align: center;
-          padding-bottom: 1rem;
-        }
-        .number {
-          font-size: 2.5rem;
-          font-weight: 600;
-          color: var(--secondary);
-        }
-        .label {
-          font-size: 1.25rem;
-          text-transform: capitalize;
-          color: var(--dark);
-        }
 
-        .results {
-          position: relative;
+          padding-block: min(10%, 5rem);
           background: var(--light);
-          color: var(--dark);
-        }
-        .year-links {
-          display: flex;
-          justify-content: space-around;
 
-          background: var(--primary);
-          color: white;
         }
-        .year-links button {
-          padding: 1rem 0.5rem;
-          background: transparent;
-          color: inherit;
-          border: none;
-        }
+        .tab-container {
+          position: relative;
 
-        .t-row {
-          display: flex;
-          justify-content: space-between;
-          padding-block: 0.5rem;
-          font-size: 1.1rem;
-          border-bottom: 1px solid var(--dark);
+          width: 100%;
+          max-width: max-content;
+
+          margin-inline: auto;
+          
+          background: white;
+          border-radius: 2rem;
+
+          padding: 3rem 1.5rem;
         }
-        @media screen and (min-width: 47em) {
-          .fact {
-            width: 33.33333%;
-          }
-        }
-      `} </style>
+      `} </style> 
     </>
   )
 } 
+
+
+export async function getStaticProps(context) {
+  let year = new Date().getFullYear();
+  const LAST_EXISTING_YEAR = 2019;
+  const records = {};
+
+  while (Object.keys(records).length < 4 && year !== LAST_EXISTING_YEAR) {
+    const yearRecords = await fetch(`http://localhost:4000/people/${year}`).then(res => res.json());
+    if (yearRecords.length > 0) records[year] = yearRecords;
+    year--;
+  }
+
+  return {
+    props: {
+      records,
+    },
+  }
+}

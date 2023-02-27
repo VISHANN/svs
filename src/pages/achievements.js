@@ -3,6 +3,7 @@ import Hero from '../components/hero'
 import PrimaryNav from '../components/navbar/PrimaryNav'
 import { Tabs } from '../components/achievements';
 import DummyImg from '../../public/img/students/dummy.jpg'
+import Blockquote from '../components/common/Blockquote';
 
 export default function Achievements({ records }) {
   return (
@@ -70,16 +71,33 @@ export default function Achievements({ records }) {
         </section>
       </article>
  
-      <section className='tabs'>
-        <div className="tab-container">
-          <Tabs records={records} />  
+      <section className='slice'>
+        <div className="tabs container">
+          
+          <div className="review">
+            <Blockquote
+              quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?"
+              author="Jilsana Bano" />
+          </div>
+
+          <div className="tab-container">
+            <Tabs records={records} />  
+          </div>
+
         </div>
       </section>     
       <style jsx>{`
+        .main {
+          position: relative;
+        }
         .tabs {
           position: relative;
           padding-block: min(10%, 5rem);
           background: var(--light);
+          
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
         }
         .tab-container {
           width: 100%;
@@ -90,14 +108,15 @@ export default function Achievements({ records }) {
           padding: 3rem 1.5rem;
         }
 
-        .main {
-          position: relative;
-        }
         .cards-wrapper {
           display: flex;
           gap: 20px;
           width: 100%;
           justify-content: space-around;
+        }
+
+        .review {
+          flex: 1 1;
         }
       `} </style> 
     </>

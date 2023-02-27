@@ -149,7 +149,7 @@ body {
 
   blockquote > p::after, 
   blockquote > p::before {
-    font-family: Georgia, serif;
+    font-family: serif;
     font-size: 4em;    
     color: inherit;
     line-height: 0.1em;

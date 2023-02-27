@@ -74,7 +74,7 @@ export default function Achievements({ records }) {
       <section className='slice'>
         <div className="tabs container">
           
-          <div className="review">
+          <div className="testimonial">
             <Blockquote
               quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?"
               cite="Jilsana Bano, XII, 2022" />
@@ -106,6 +106,7 @@ export default function Achievements({ records }) {
           background: white;
           border-radius: 2rem;
           padding: 3rem 1.5rem;
+          box-shadow: 0.5rem 0.5rem 1rem 0.2rem rgba(0, 0, 0, .1);
         }
 
         .cards-wrapper {
@@ -115,8 +116,10 @@ export default function Achievements({ records }) {
           justify-content: space-around;
         }
 
-        .review {
+        .testimonial {
           flex: 1 1;
+          justify-self: center;
+          padding-block: 1.5rem;
         }
       `} </style> 
     </>

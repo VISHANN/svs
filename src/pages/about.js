@@ -1,6 +1,7 @@
 import Hero from '../components/hero'
 import Footer from '../components/footer'
 import PrimaryNav from '../components/navbar/PrimaryNav'
+import Blockquote from '../components/common/Blockquote'
 
 export default function Home() {
   
@@ -100,12 +101,9 @@ export default function Home() {
       
       <div className="slice">
         <div className="container">
-          <blockquote>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?
-            </p>
-            <cite>Swami Vivekananda</cite>
-          </blockquote>
+          <Blockquote 
+            quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?"
+            author="Swami Vivekanand" />
         </div>
       </div>
       <style jsx>{`

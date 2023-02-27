@@ -172,6 +172,12 @@ body {
     content: "\2014 \0020";
   }
   blockquote > cite {
-    font-size: 1.25rem;
+    font-size: 0.85em;
     color: inherit;
+    letter-spacing: 0.1ch;
+  }
+  @media screen and (max-width: 760px) {
+    blockquote {
+      font-size: 1.2rem ;
+    }
   }

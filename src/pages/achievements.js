@@ -77,7 +77,7 @@ export default function Achievements({ records }) {
           <div className="review">
             <Blockquote
               quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?"
-              author="Jilsana Bano" />
+              cite="Jilsana Bano, XII, 2022" />
           </div>
 
           <div className="tab-container">

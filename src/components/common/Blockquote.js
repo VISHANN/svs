@@ -1,11 +1,11 @@
-export default function Blockquote({ quote, author }) {
+export default function Blockquote({ quote, cite }) {
   return(
     <blockquote>
       <p>
         {quote}
       </p>
       <cite>
-        {author}
+        {cite}
       </cite>
     </blockquote>
   )

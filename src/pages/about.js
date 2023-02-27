@@ -103,7 +103,7 @@ export default function Home() {
         <div className="container">
           <Blockquote 
             quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente ipsum amet necessitatibus asperiores, delectus quod?"
-            author="Swami Vivekanand" />
+            cite="Swami Vivekanand" />
         </div>
       </div>
       <style jsx>{`
